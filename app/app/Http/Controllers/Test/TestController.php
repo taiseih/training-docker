@@ -17,5 +17,17 @@ class TestController extends Controller
         {
             return Inertia::render('Inertia/Index');
         }
+
+        /*
+            @param int $id パラメータ
+        */
+        public function show(int $id)
+        {
+            // dd($id);
+            return Inertia::render('Inertia/Show', 
+        [
+            'id' => $id,//変数を渡す形bladeで言うところのcompact
+        ]);
+        }
     
 }

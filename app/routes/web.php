@@ -31,6 +31,7 @@ Controller経由のLink
 */
 
 Route::get('inertia/index', [TestController::class, 'index'])->name('inertia.index');
+Route::get('inertia/show/{id}', [TestController::class, 'show'])->name('inertia.show');
 
 
 Route::get('/', function () {
