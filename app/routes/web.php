@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Test\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,22 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*
+直接Link経由のルート
+*/
+
+Route::get('inertia-test/', function () 
+{
+    return Inertia::render('InertiaTest');
+});
+
+/*
+Controller経由のLink
+*/
+
+Route::get('inertia/index', [TestController::class, 'index'])->name('inertia.index');
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
