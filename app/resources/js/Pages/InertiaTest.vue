@@ -20,5 +20,7 @@ const contents = ref('');
                 title : title,
                 contents : contents
             }">
-        DB保存テスト</Link>
+        DB保存テストrefを使ったバージョン</Link><br>
+
+        <Link v-bind:href="route('inertia.create')">フォーム送信での登録画面</Link>
 </template>

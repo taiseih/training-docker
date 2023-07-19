@@ -12,6 +12,10 @@ use Inertia\Inertia;
 
 class TestController extends Controller
 {
+    public function test()
+    {
+        return Inertia::render('InertiaTest');
+    }
 
     /*
     @return Response
@@ -20,6 +24,11 @@ class TestController extends Controller
     public function index(): Response
     {
         return Inertia::render('Inertia/Index');
+    }
+
+    public function create()
+    {
+        return Inertia::render('Inertia/Create');
     }
 
     /*
