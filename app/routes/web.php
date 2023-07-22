@@ -29,11 +29,16 @@ Route::get('inertia-test/', function ()
 /*
 Controller経由のLink
 */
-Route::get('inertia-test', [TestController::class, 'test'])->name('inertia.test');
-Route::get('inertia/index', [TestController::class, 'index'])->name('inertia.index');
-Route::get('inertia/create', [TestController::class, 'create'])->name('inertia.create');
-Route::get('inertia/show/{id}', [TestController::class, 'show'])->name('inertia.show');
-Route::post('inertia/', [TestController::class, 'store'])->name('inertia.store');
+Route::middleware(['auth', 'verified'])->group(function()
+{
+        Route::get('inertia-test', [TestController::class, 'test'])->name('inertia.test');
+        Route::get('inertia/index', [TestController::class, 'index'])->name('inertia.index');
+        Route::get('inertia/create', [TestController::class, 'create'])->name('inertia.create');
+        Route::get('inertia/show/{id}', [TestController::class, 'show'])->name('inertia.show');
+        Route::post('inertia/', [TestController::class, 'store'])->name('inertia.store');
+});
+
+
 
 
 Route::get('/', function () {
