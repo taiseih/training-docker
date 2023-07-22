@@ -5,5 +5,5 @@ import { Link } from '@inertiajs/inertia-vue3';
 
 <template>
     InertiaフォルダのIndexです<br>
-    <Link v-bind:href="route('inertia.test  ')">inertiaテスト画面</Link>
+    <Link v-bind:href="route('inertia.test')">inertiaテスト画面</Link>
 </template>
