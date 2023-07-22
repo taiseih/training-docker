@@ -2,6 +2,10 @@
 import { reactive } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 
+defineProps({
+    errors: Object
+})
+
 const form = reactive( //オブジェクトにしておくことでsubmitでまとめて登録することができる
     {
         title: null,
@@ -20,7 +24,9 @@ const submit = () => {
     <!-- preventはページ全体ではなく一部だけを読み込ませる処理 -->
     <form v-on:submit.prevent="submit">
         <input type="text" name="title" v-model="form.title"> 
+        <div v-if="errors.title">{{ errors.title }}</div>
         <input type="text" name="contents" v-model="form.contents">
+        <div v-if="errors.contents">{{ errors.contents }}</div>
         <button>送信</button>
     </form>
 </template>

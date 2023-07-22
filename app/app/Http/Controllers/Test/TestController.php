@@ -47,6 +47,12 @@ class TestController extends Controller
 
     public function store(Request $request)
     {
+
+        $validate = $request->validate([
+            'title' => 'required | max:255',
+            'contents' => 'required',
+        ]);
+
         $inertiaTest = new InertiaTest;
         $inertiaTest->title = $request->title;
         $inertiaTest->contents = $request->contents;
