@@ -58,6 +58,9 @@ class TestController extends Controller
         $inertiaTest->contents = $request->contents;
         $inertiaTest->save();
 
-        return redirect()->route('inertia.index');
+        return redirect()->route('inertia.index')->with(
+            [
+                'message' => '登録しました',
+            ]);
     }
 }
