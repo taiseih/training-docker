@@ -3,6 +3,10 @@
 import { Link } from '@inertiajs/inertia-vue3';
 import { ref } from 'vue';
 
+defineProps({
+    errors: Object
+})
+
 const title = ref('');
 const contents = ref('');
 </script>
@@ -20,6 +24,7 @@ const contents = ref('');
                 title : title,
                 contents : contents
             }">
+            <div v-if="errors.title">{{ error.title }}</div>
         DB保存テストrefを使ったバージョン</Link><br>
 
         <Link v-bind:href="route('inertia.create')">フォーム送信での登録画面</Link>
