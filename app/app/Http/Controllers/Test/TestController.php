@@ -17,8 +17,8 @@ class TestController extends Controller
         return Inertia::render('InertiaTest');
     }
 
-    /*
-    @return Response
+    /** 
+    * @return Response
     */
 
     public function index(): Response
@@ -31,9 +31,9 @@ class TestController extends Controller
         return Inertia::render('Inertia/Create');
     }
 
-    /*
-            @param int $id パラメータ
-        */
+    /** 
+     * @param int $id パラメータ
+    */
     public function show(int $id)
     {
         // dd($id);
