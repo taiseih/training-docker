@@ -41,6 +41,8 @@ Route::middleware(['auth', 'verified'])->group(function()
 
 Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('index',[TodoController::class, 'index'])->name('todo.index');
+    Route::post('todo/', [TodoController::class, 'store'])->name('todo.store');
+
 });
 
 
