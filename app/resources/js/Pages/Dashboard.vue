@@ -21,7 +21,10 @@ import { Link } from '@inertiajs/inertia-vue3';
                         You're logged in!
                     </div>
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <Link href="inertia-test" class="text-green-500 border-green-500">テスト用のリンク</Link>
+                        <Link href="inertia-test" class="text-green-500">テスト用のリンク</Link>
+                    </div>
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        <Link v-bind:href="route('todo.index')" class="text-red-500">todoアプリです</Link>
                     </div>
                 </div>
             </div>

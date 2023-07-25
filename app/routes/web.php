@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Test\TestController;
+use App\Http\Controllers\Training\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,9 @@ Route::middleware(['auth', 'verified'])->group(function()
         Route::post('inertia/', [TestController::class, 'store'])->name('inertia.store');
 });
 
+Route::middleware(['auth', 'verified'])->group(function(){
+    Route::get('index',[TodoController::class, 'index'])->name('todo.index');
+});
 
 
 
