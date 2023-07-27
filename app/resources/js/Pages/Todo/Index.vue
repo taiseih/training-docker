@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
-import {Inertia} from '@inertiajs/inertia';
+import { Inertia } from '@inertiajs/inertia';
 
 defineProps({
     errors: Object
@@ -38,10 +38,10 @@ const submit = () => {
                 </label>
                 <p v-if="errors.detail" class="text-red-500">{{ errors.detail }}</p>
             </div>
-                <button
-                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    登録
-                </button>
+            <button
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                登録
+            </button>
         </form>
     </div>
 </template>

@@ -30,7 +30,7 @@ class TodoController extends Controller
         $todo->save();
 
         return redirect()->route('todo.index')->with([
-            'message' => '登録しました',
+            'message' => '登録かんりょ〜',
         ]);
      }
 }
