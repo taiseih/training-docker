@@ -30,6 +30,9 @@ const showingNavigationDropdown = ref(false);
                                 <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </BreezeNavLink>
+                                <BreezeNavLink :href="route('todo.index')" :active="route().current('todo.index')">
+                                    todoアプリ
+                                </BreezeNavLink>
                             </div>
                         </div>
 

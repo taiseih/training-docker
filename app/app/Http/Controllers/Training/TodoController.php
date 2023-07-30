@@ -14,7 +14,9 @@ class TodoController extends Controller
      */
 
      public function index() {
-        return Inertia::render('Todo/Index');
+        return Inertia::render('Todo/Index', [
+            'contents' => Todo::all(),
+        ]);
      }
 
      public function store(Request $request) {
