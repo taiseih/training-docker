@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\Training\TodoController;
+use App\Models\Todo;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::post('todo/', [TodoController::class, 'store'])->name('todo.store');
     Route::get('todo/show/{id}', [TodoController::class, 'show'])->name('todo.show');
     Route::put('todo/{id}', [TodoController::class, 'update'])->name('todo.update');
+    Route::delete('todo/{id}', [TodoController::class, 'delete'])->name('todo.destroy');
 });
 
 

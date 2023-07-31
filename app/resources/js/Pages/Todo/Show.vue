@@ -1,15 +1,21 @@
 <script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
+import { reactive } from "vue";
 const props = defineProps({
     todo: Object,
 })
-const form = useForm({
+const form = reactive({
+    id: props.todo.id,
     name: props.todo.name,
     detail: props.todo.detail
 });
 
-const submit = () => {
-    form.put(route('todo.update', {id: props.todo.id})); //routeメソッドを使用しているためconst formのuseFormを使用する必要がある
+const submit = id => {
+    Inertia.put(route('todo.update', {id: id}), form);
+}
+
+const deleteContent= id => {
+    Inertia.delete(route('todo.destroy', {id: id}));
 }
 
 </script>
@@ -17,9 +23,10 @@ const submit = () => {
 <template>
     {{ todo.name }}<br>
     {{ todo.detail }}<br>
-    <form v-on:submit.prevent="submit">
+    <form v-on:submit.prevent="submit(todo.id)">
         <input type="text" name="name" v-model="form.name"><br>
         <input type="text" name="detail" v-model="form.detail"><br>
         <button>更新</button>
     </form>
+        <button v-on:click="deleteContent(todo.id)">削除</button>
 </template>

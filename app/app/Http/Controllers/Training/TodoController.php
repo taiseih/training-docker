@@ -55,4 +55,14 @@ class TodoController extends Controller
             'message' => '更新かんりょ〜'
         ]);
      }
+
+     public function delete($id)
+     {
+        Todo::find($id)->delete();
+
+        return redirect()->route('todo.index')->with([
+            'message' => '削除しました〜'
+        ]);
+
+     }
 }
