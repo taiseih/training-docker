@@ -35,4 +35,24 @@ class TodoController extends Controller
             'message' => '登録かんりょ〜',
         ]);
      }
+
+     public function show(int $id)
+     {
+        $todo = Todo::findOrFail($id);
+        return Inertia::render('Todo/Show', [
+            'todo' => $todo,
+        ]);
+     }
+
+     public function update(Request $request, $id)
+     {
+        $todo = Todo::find($id);
+        $todo->name = $request->name;
+        $todo->detail = $request->detail;
+        $todo->save();
+        
+        return redirect()->route('todo.index')->with([
+            'message' => '更新かんりょ〜'
+        ]);
+     }
 }

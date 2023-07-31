@@ -2,6 +2,7 @@
 import { reactive } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import { Link } from '@inertiajs/inertia-vue3';
 defineProps({
     errors: Object,
     contents: Object,
@@ -52,10 +53,23 @@ const submit = () => {
                 </button>
             </form>
         </div>
-        <div class="">
-            <tr v-for="content in contents" v-bind:key="contents.id">
-                <td>{{ content.name }}{{ content.detail }}</td>
-            </tr>
+        <div>
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th class="text-sm pr-2">ID</th>
+                        <th class="text-sm pr-2">タイトル</th>
+                        <th class="text-sm pr-2">コンテンツ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="content in contents" v-bind:key="content.id">
+                        <td class="border border-black"><Link :href="route('todo.show', { id: content.id })">{{ content.id }}</Link></td>
+                        <td class="border border-black">{{ content.name }}</td>
+                        <td class="border border-black">{{ content.detail }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
     </BreezeAuthenticatedLayout>

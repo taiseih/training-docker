@@ -42,7 +42,8 @@ Route::middleware(['auth', 'verified'])->group(function()
 Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('index',[TodoController::class, 'index'])->name('todo.index');
     Route::post('todo/', [TodoController::class, 'store'])->name('todo.store');
-
+    Route::get('todo/show/{id}', [TodoController::class, 'show'])->name('todo.show');
+    Route::put('todo/{id}', [TodoController::class, 'update'])->name('todo.update');
 });
 
 
